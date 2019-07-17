@@ -42,6 +42,7 @@ let quastion,
             for (let i = 0; i < calcInputs.length; i++) {
                 calcInputs[i].value = '';
             }
+            periodAmount.textContent = inputPeriodSelect.value;
             this.budget = 0;
             this.budgetDay = 0;
             this.budgetMonth = 0;
