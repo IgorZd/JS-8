@@ -1,5 +1,5 @@
 'use strict';
-let start = document.getElementById('start'),
+const start = document.getElementById('start'),
     buttonPlus = document.querySelectorAll('button'),
     buttonAddIncome = buttonPlus[0],
     buttonAddExpenses = buttonPlus[1],
@@ -51,8 +51,8 @@ AppData.prototype.start = function() {
     this.getIncome();
     this.getExpensesMonth();
     this.getInfoDeposit();
-    this.getAddInput(inputResultAdditionalIncome, this.addIncome);
-    this.getAddInput(inputResultAdditionalExpenses, this.addExpenses);
+    this.getAddInput(inputResultAdditionalIncome.value, this.addIncome);
+    this.getAddInput(inputResultAdditionalExpenses.value, this.addExpenses);
     this.getBudgetMonth();
     this.getBudgetDay();
     this.showResult();
@@ -148,10 +148,11 @@ AppData.prototype.getInfoDeposit = function() {
     }
 };
 AppData.prototype.getAddInput = function(additionalInput, propertyObject) {
-    if (!Array.isArray(additionalInput)) {
-        additionalInput.value.split(',');
+    let arrAdditionalInput;
+    if (Array.isArray(additionalInput) == false) {
+        arrAdditionalInput = additionalInput.split(',');
     }
-    additionalInput.forEach((item) => {
+    arrAdditionalInput.forEach((item) => {
         item = item.trim();
         if (item !== '') {
             this.propertyObject.push(item);
@@ -255,32 +256,10 @@ AppData.prototype.eventsListeners = function() {
         cancel.style = 'display: inline-block';
     });
 };
-let appData = new AppData();
+const appData = new AppData();
 AppData.prototype.eventsListeners();
 console.log(appData);
 appData.getTargetMonth();
-let expensesAmount1 = appData.expensesMonth,
+const expensesAmount1 = appData.expensesMonth,
     accumulatedMonth = appData.getBudget,
     period = appData.mission / appData.budgetMonth;
-
-
-
-
-
-// getAddExpenses = function() {
-//     let addExpenses = additionalExpensesItem.value.split(',');
-//     addExpenses.forEach(function(item) {
-//         item = item.trim();
-//         if (item !== '') {
-//             appData.addExpenses.push(item);
-//         }
-//     })
-// };
-// getAddIncome = function() {
-//     additionalIncomeItem.forEach((item) => {
-//         item = item.trim();
-//         if (item !== '') {
-//             this.addIncome.push(item);
-//         }
-//     })
-// };
