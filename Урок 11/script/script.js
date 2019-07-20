@@ -28,8 +28,7 @@ const start = document.getElementById('start'),
     cashExpenses = document.querySelectorAll('.expenses-amount'),
     depositBank = document.querySelector('.deposit-bank'),
     depositAmount = document.querySelector('.deposit-amount'),
-    depositPercent = document.querySelector('.deposit-percent'),
-    quastion;
+    depositPercent = document.querySelector('.deposit-percent');
 const AppData = function() {
     this.budget = 0;
     this.budgetDay = 0;
