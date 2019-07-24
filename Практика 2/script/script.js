@@ -132,6 +132,9 @@ window.addEventListener('DOMContentLoaded', function() {
     tabs();
     //Слайдер
     const slider = () => {
+        const slide = document.querySelectorAll('.portfolio-item'),
+            btn = document.querySelectorAll('.portfolio-btn'),
+            slider = document.querySelector('.portfolio-content');
         let currentSlide = 0,
             interval;
         const addDots = () => {
@@ -139,7 +142,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 newDot = document.createElement('li');
             dotsUl.appendChild(newDot);
             newDot.className = 'dot';
-            for (let i = 0; i < 6; i++) {
+            for (let i = 0; i < slide.length; i++) {
                 let cloneNewDot = newDot.cloneNode(true);
                 dotsUl.appendChild(cloneNewDot);
             }
@@ -147,10 +150,7 @@ window.addEventListener('DOMContentLoaded', function() {
             allDots[0].className = '.dot dot-active';
         }
         addDots();
-        const slide = document.querySelectorAll('.portfolio-item'),
-            btn = document.querySelectorAll('.portfolio-btn'),
-            slider = document.querySelector('.portfolio-content'),
-            dot = document.querySelectorAll('.dot');
+        const dot = document.querySelectorAll('.dot');
         const prevSlide = (elem, index, strClass) => {
             elem[index].classList.remove(strClass);
         };
