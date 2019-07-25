@@ -79,8 +79,8 @@ window.addEventListener('DOMContentLoaded', function() {
                     let pos = 0 - popupContent.clientHeight;
                     const setPos = () => {
                         popup.style.opacity = '1';
-                        popupContent.style.left = pos + 'px';
-                        if (popupContent.getBoundingClientRect().left < popupContent.clientHeight) pos += 1;
+                        popupContent.style.top = pos + 'px';
+                        if (popupContent.getBoundingClientRect().top < 100) pos += 1;
                         else clearInterval(intervalPos);
                     }
                     let intervalPos = setInterval(setPos, 1);
