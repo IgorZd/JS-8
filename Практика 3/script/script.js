@@ -256,7 +256,7 @@ window.addEventListener('DOMContentLoaded', function() {
                 if (typeValue && squareValue) {
                     total = price * typeValue * squareValue * countValue * dayValue;
                 }
-                totalValue.textContent = total;
+                totalValue.textContent = Math.ceil(total);
 
             };
             if (target === calcType || target === calcSquare || target === calcDay || target === calcCount) {
